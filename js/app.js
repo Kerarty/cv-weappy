@@ -126,12 +126,12 @@
   var chosenDilemma = null;
   var verdictTexts = {
     a: {
-      ru: 'НЕРФ ПРОВЁЛСЯ БЫ, НО… Прямой нерф обесценивает юнита для его игроков — «нашего героя порезали». Плейтесты показали, что проблема не в самом юните, а в его связке с ранней экономикой. Правильный ход был другой — см. вариант Б. Настоящий кейс: я изменил условие входа, а не силу персонажа, и доля побед вышла в коридор 45–55% без единого обиженного плейтестера.',
-      en: 'A NERF WOULD WORK, BUT… A direct nerf devalues the unit for the players who love it — "they cut our hero." Playtests showed the problem wasn\'t the unit itself but its synergy with the early economy. The right move was the other one — see option B. The real case: I changed the cost of entry, not the character\'s power, and the win rate settled into 45–55% without a single offended playtester.'
+      ru: 'МИНИМУМ ВЫГОДЕН — КОГДА ДАННЫЕ НА ТВОЕЙ СТОРОНЕ. Чистая партия стали, прокачанный станок, отдохнувший оператор — тогда запас не нужен и минимум честно экономит металл. Но дешёвая партия с примесями плюс усталость — и брак съест всю экономию: переделка дороже запаса. В «Механизме» это считается заново для каждого заказа.',
+      en: 'THE MINIMUM PAYS OFF — WHEN THE DATA IS ON YOUR SIDE. A clean steel batch, an upgraded machine, a rested operator — then the margin is dead weight and the minimum honestly saves metal. But a cheap impure batch plus fatigue, and scrap eats the savings: a rebuild costs more than the margin. In ‘Mekhanizm’ this is recalculated for every order.'
     },
     b: {
-      ru: 'ВЕРНО. Поднимая цену, я оставляю юнита таким же сильным и уважаю тех, кто за него играет, — но он перестаёт доминировать в ранней игре. Минимальное изменение, проверенное данными 15+ сессий: доля побед фракции вышла в коридор 45–55%. Это и есть мой подход к балансу: сначала данные, потом гипотеза, потом самая маленькая правка, которая решает проблему.',
-      en: 'CORRECT. By raising the cost I keep the unit just as strong — respecting the players who love it — but it stops dominating the early game. A minimal change, backed by data from 15+ sessions: the faction\'s win rate settled into 45–55%. That is my approach to balance: data first, then a hypothesis, then the smallest patch that fixes the problem.'
+      ru: 'ВЕРНО ПО УМОЛЧАНИЮ. Запас страхует от брака на каждом этапе и приносит надбавку к оплате — заказчик платит за надёжность. Обратная сторона честная: детали реально становятся крупнее, металла и времени уходит больше. Именно этот обмен — решение игрока, а не поле ввода: так в «Механизме» размер изделия стал геймплейным решением.',
+      en: 'CORRECT BY DEFAULT. The margin insures every stage against defects and earns a price premium — the client pays for reliability. The flip side is honest: parts physically grow, consuming more metal and time. That exact trade-off is the player’s decision, not a form field — that is how a part’s size became gameplay in ‘Mekhanizm’.'
     }
   };
   function bindChoice(btnId, key) {

@@ -279,7 +279,7 @@ body {
 .case-name { font-family: var(--font-head); font-weight: 600; font-size: 17px; letter-spacing: .05em; flex: 1; }
 .case-tag { font-size: 10px; letter-spacing: .12em; color: var(--stamp); border: 2px solid var(--stamp); padding: 2px 7px; transform: rotate(-3deg); }
 .case-body { max-height: 0; overflow: hidden; transition: max-height .45s ease; }
-.case.open .case-body { max-height: 400px; }
+.case.open .case-body { max-height: 560px; }
 .case-body .evidence { list-style: none; padding: 0 18px 18px 40px; }
 .evidence li { position: relative; padding: 5px 0 5px 20px; font-size: 13.5px; }
 .evidence li::before { content: '▪'; position: absolute; left: 0; color: var(--stamp); }
@@ -353,6 +353,7 @@ body {
   margin-bottom: 10px; padding: 10px;
 }
 .film-g { font-family: var(--font-head); font-weight: 700; font-size: clamp(20px, 3vw, 30px); text-transform: uppercase; letter-spacing: .05em; }
+.fp-m { background: radial-gradient(circle at 50% 25%, #93a3b5, #2c3742); color: #ffd9a0; }
 .fp-1 { background: radial-gradient(circle at 30% 20%, #7fa8c9, #274a68); color: #fff; }
 .fp-2 { background: radial-gradient(circle at 70% 25%, #e0703c, #6e2a12); color: #ffe9d8; }
 .fp-3 { background: radial-gradient(circle at 50% 80%, #4b6d78, #16262e); color: #d9f0ee; }
