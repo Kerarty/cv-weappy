@@ -60,6 +60,9 @@ body {
   border: 1px solid #55595f; padding: 4px 10px; cursor: pointer;
 }
 .hud-btn:hover { border-color: var(--paper); }
+.hud-pdf { border-color: var(--stamp); color: #e0a598; }
+.hud-pdf:hover { background: var(--stamp); color: #f4ede0; }
+.fp-6 { background: radial-gradient(circle at 55% 35%, #9db98a, #37522c); color: #f0f6e4; }
 .hud-print { display: none; }
 @media (min-width: 640px) { .hud-print { display: inline-block; } }
 
