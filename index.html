@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THIS IS THE GAME DESIGNER — Ярослав Кукар</title>
+<meta name="description" content="Интерактивное досье геймдизайнера Ярослава Кукара в стиле игр Weappy Studio. 5 томов: Freeburg, Sharpwood, Ripton, Студия, Архипелаг.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='none' stroke='%23a33c2e' stroke-width='6'/><text x='50' y='66' font-size='46' text-anchor='middle' fill='%23a33c2e' font-family='monospace' font-weight='bold'>ГД</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Oswald:wght@400;500;600;700&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ HUD ============ -->
+<header class="hud" id="hud">
+  <div class="hud-left">
+    <span class="hud-day" id="hudDay" data-ru="ДЕНЬ 1 СЛУЖБЫ" data-en="DAY 1 OF SERVICE"></span>
+    <span class="hud-grad" id="hudGrad" data-ru="ДО ДИПЛОМА: —" data-en="UNTIL DIPLOMA: —"></span>
+  </div>
+  <div class="hud-center">
+    <span class="hud-support-label" data-ru="ПОДДЕРЖКА НАСЕЛЕНИЯ" data-en="PUBLIC SUPPORT"></span>
+    <div class="hud-support-bar"><div class="hud-support-fill" id="supportFill"></div></div>
+    <span class="hud-support-num" id="supportNum">0%</span>
+  </div>
+  <div class="hud-right">
+    <button class="hud-btn" id="langToggle" title="RU / EN">RU</button>
+    <button class="hud-btn hud-print" id="printBtn" data-ru="СЛУЖЕБНАЯ ЗАПИСКА" data-en="OFFICE MEMO" title="Печатная версия"></button>
+  </div>
+</header>
+
+<!-- ============ ОБЛОЖКА ============ -->
+<section class="cover" id="cover">
+  <div class="cover-folder">
+    <div class="cover-stamp stamp-rot" data-ru="К РАССМОТРЕНИЮ" data-en="FOR REVIEW"></div>
+    <p class="cover-case" data-ru="ДЕЛО № ГД-180" data-en="CASE NO. GD-180"></p>
+    <h1 class="cover-title">THIS IS THE<br>GAME DESIGNER</h1>
+    <p class="cover-name" data-ru="ЯРОСЛАВ КУКАР — ГЕЙМДИЗАЙНЕР" data-en="YAROSLAV KUKAR — GAME DESIGNER"></p>
+    <p class="cover-meta" data-ru="Материалы дела: 5 томов · время рассмотрения: 5 минут · язык: русский / english" data-en="Case files: 5 volumes · review time: 5 minutes · language: russian / english"></p>
+    <button class="cover-btn" id="openCase" data-ru="ОТКРЫТЬ ДЕЛО" data-en="OPEN THE CASE"></button>
+    <p class="cover-note" data-ru="Досье составлено по материалам Freeburg, Sharpwood, Ripton, кинопроката 1929 года и архипелага легенд." data-en="This file draws on the records of Freeburg, Sharpwood, Ripton, the 1929 film distribution circuit, and an archipelago of legends."></p>
+  </div>
+</section>
+
+<main id="dossier" class="dossier">
+
+<!-- ============ ТОМ I. FREEBURG ============ -->
+<section class="volume vol-1" id="vol1" data-vol="1">
+  <div class="vol-header">
+    <span class="vol-num" data-ru="ТОМ I" data-en="VOLUME I"></span>
+    <h2 class="vol-title">FREEBURG</h2>
+    <p class="vol-sub" data-ru="Кабинет шефа — координаты, сводки и календарь службы" data-en="The Chief's Office — coordinates, dispatches and the service calendar"></p>
+  </div>
+
+  <div class="desk">
+    <!-- Телефон -->
+    <div class="desk-item reveal" id="phoneItem">
+      <div class="desk-icon phone-icon">
+        <div class="phone-body"><div class="phone-dial"></div></div>
+      </div>
+      <h3 class="desk-caption" data-ru="ТЕЛЕФОН — СВЯЗЬ" data-en="THE PHONE — CONTACT"></h3>
+      <ul class="contact-list">
+        <li><span class="c-key" data-ru="Линия 1" data-en="Line 1"></span><a href="tel:+375447838489">+375 44 783-84-89</a></li>
+        <li><span class="c-key" data-ru="Линия 2" data-en="Line 2"></span><a href="mailto:kukar.yar@gmail.com">kukar.yar@gmail.com</a></li>
+        <li><span class="c-key" data-ru="Адрес" data-en="Address"></span><a href="https://github.com/Kerarty" target="_blank" rel="noopener">github.com/Kerarty</a></li>
+        <li><span class="c-key" data-ru="Базирование" data-en="Based in"></span><span data-ru="Беларусь · готов к удалённой работе" data-en="Belarus · open to remote work"></span></li>
+      </ul>
+    </div>
+
+    <!-- Телеграф -->
+    <div class="desk-item reveal telegraph">
+      <div class="desk-icon telegraph-icon">
+        <div class="tg-body"><div class="tg-arm"></div><div class="tg-base"></div></div>
+      </div>
+      <h3 class="desk-caption" data-ru="ТЕЛЕГРАФ — ДЕПЕШИ" data-en="THE TELEGRAPH — DISPATCHES"></h3>
+      <div class="telegrams">
+        <div class="telegram tgl-1">
+          <p data-ru="СРОЧНО. GDD СТРАТЕГИИ ПЕРЕДАН КОМАНДЕ. МЕХАНИКИ. ПРОГРЕССИЯ. БАЛАНС РЕСУРСОВ. АРТ-СТИЛЬ. ВСЁ НА МЕСТЕ. — НАЧ. ШТАБА" data-en="URGENT. STRATEGY GDD DELIVERED TO TEAM. MECHANICS. PROGRESSION. RESOURCE BALANCE. ART STYLE. ALL IN PLACE. — HQ"></p>
+        </div>
+        <div class="telegram tgl-2">
+          <p data-ru="ЭРИДОР ДОКЛАДЫВАЕТ: 15+ ПЛЕЙТЕСТОВ ЗАФИКСИРОВАНО. ЧЕТЫРЕ ФРАКЦИИ УРАВНЯНЫ. ЖАЛОБ НЕ ПОСТУПАЛО. ПРОДОЛЖАЕМ." data-en="ERIDOR REPORTS: 15+ PLAYTESTS LOGGED. FOUR FACTIONS BALANCED. NO COMPLAINTS FILED. PROCEEDING."></p>
+        </div>
+        <div class="telegram tgl-3">
+          <p data-ru="PLAYABLE AD РАЗВЁРНУТ ОДНИМ ФАЙЛОМ 472 КБ. СЕТЬ НЕ ТРЕБУЕТСЯ. ПОВТОРЮ. СЕТЬ НЕ ТРЕБУЕТСЯ." data-en="PLAYABLE AD DEPLOYED AS A SINGLE 472 KB FILE. NO NETWORK REQUIRED. REPEAT. NO NETWORK REQUIRED."></p>
+        </div>
+        <div class="telegram tgl-4">
+          <p data-ru="SDK ПЛЕЙЕБЛОВ ГОТОВ. АДАПТЕРЫ РЕКЛАМНЫХ СЕТЕЙ ПОДКЛЮЧЕНЫ. ДВИЖОК ЗНАЧЕНИЯ НЕ ИМЕЕТ. — ТЕХОТДЕЛ" data-en="PLAYABLES SDK READY. AD NETWORK ADAPTERS WIRED. ENGINE-AGNOSTIC. — TECH DEPT"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Календарь -->
+    <div class="desk-item reveal">
+      <div class="desk-icon calendar-icon">
+        <div class="cal-body"><div class="cal-rings"></div><div class="cal-page"><span>2023–27</span></div></div>
+      </div>
+      <h3 class="desk-caption" data-ru="КАЛЕНДАРЬ — СЛУЖБА" data-en="THE CALENDAR — SERVICE RECORD"></h3>
+      <ul class="timeline">
+        <li class="tl-item">
+          <span class="tl-year">2023</span>
+          <div class="tl-body">
+            <h4 data-ru="Поступление в БГУИР" data-en="Enrolled at BSUIR"></h4>
+            <p data-ru="«Информационные системы и технологии в игровой индустрии», инженер-программист, бакалавриат. Начало службы — 1 сентября 2023." data-en="Information Systems & Technologies in the Game Industry, software engineer track, bachelor's. Service began September 1, 2023."></p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">2025</span>
+          <div class="tl-body">
+            <h4 data-ru="Первые заказные проекты и плейоблы" data-en="First commissioned projects and playables"></h4>
+            <p data-ru="Коммерческие сайты на заказ; playable-креативы одним файлом; SDK для плейеблов. Unity 6: головоломка EchoLoop." data-en="Commercial websites on contract; single-file playable creatives; a playables SDK. Unity 6: the EchoLoop puzzle."></p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">2026</span>
+          <div class="tl-body">
+            <h4 data-ru="Серия интерактивных резюме" data-en="The interactive resume series"></h4>
+            <p data-ru="Пять досье под пять студий, каждое — отдельный подход. Документ, который вы держите, — шестое, самое полное." data-en="Five dossiers for five studios, each a different approach. The file you are holding is the sixth — and the most complete."></p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <span class="tl-year">2027</span>
+          <div class="tl-body">
+            <h4 data-ru="Диплом" data-en="The diploma"></h4>
+            <p data-ru="Выпуск. До него — см. счётчик вверху. Служба продолжается." data-en="Graduation. Countdown at the top of your screen. The service continues."></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ТОМ II. SHARPWOOD ============ -->
+<section class="volume vol-2" id="vol2" data-vol="2">
+  <div class="vol-header">
+    <span class="vol-num" data-ru="ТОМ II" data-en="VOLUME II"></span>
+    <h2 class="vol-title">SHARPWOOD</h2>
+    <p class="vol-sub" data-ru="Личное дело — карточка офицера, раскрытые дела, протокол допроса" data-en="The Personnel File — officer card, closed cases, interrogation transcript"></p>
+  </div>
+
+  <!-- Карточка офицера -->
+  <div class="officer-card reveal">
+    <div class="oc-photo"><div class="oc-silhouette"></div><span class="oc-photo-caption" data-ru="фото из архива" data-en="archive photo"></span></div>
+    <div class="oc-info">
+      <p class="oc-name">КУКАР ЯРОСЛАВ</p>
+      <p class="oc-rank" data-ru="ЗВАНИЕ: ГЕЙМДИЗАЙНЕР · СПЕЦИАЛИЗАЦИЯ: СИСТЕМЫ, БАЛАНС, ДОКУМЕНТАЦИЯ" data-en="RANK: GAME DESIGNER · SPECIALIZATION: SYSTEMS, BALANCE, DOCUMENTATION"></p>
+      <ul class="oc-stats">
+        <li class="stat">
+          <span class="stat-name" data-ru="СМАРТС — системный дизайн, мат. статистика" data-en="SMARTS — systems design, math statistics"></span>
+          <div class="stat-bar" data-val="8"></div><span class="stat-val">8</span>
+        </li>
+        <li class="stat">
+          <span class="stat-name" data-ru="СИЛА — баланс: бой, экономика, прогрессия" data-en="STRENGTH — balance: combat, economy, progression"></span>
+          <div class="stat-bar" data-val="8"></div><span class="stat-val">8</span>
+        </li>
+        <li class="stat">
+          <span class="stat-name" data-ru="СКОРОСТЬ — прототипирование: Unity, C#, PixiJS" data-en="SPEED — prototyping: Unity, C#, PixiJS"></span>
+          <div class="stat-bar" data-val="7"></div><span class="stat-val">7</span>
+        </li>
+        <li class="stat">
+          <span class="stat-name" data-ru="СТРЕЛЬБА — документация и хендофф в команду" data-en="SHOOTING — documentation and team handoff"></span>
+          <div class="stat-bar" data-val="8"></div><span class="stat-val">8</span>
+        </li>
+        <li class="stat">
+          <span class="stat-name" data-ru="САМООБЛАДАНИЕ — плейтесты, итерации, дедлайны" data-en="COMPOSURE — playtests, iteration, deadlines"></span>
+          <div class="stat-bar" data-val="7"></div><span class="stat-val">7</span>
+        </li>
+      </ul>
+      <div class="oc-traits">
+        <span class="oc-traits-title" data-ru="ОСОБЫЕ ПРИМЕТЫ:" data-en="DISTINGUISHING TRAITS:"></span>
+        <span class="trait" data-ru="«Технарь» — инженерное образование за плечами" data-en="&quot;Techie&quot; — an engineering degree behind the badge"></span>
+        <span class="trait" data-ru="«Аналитик» — теорвер и статистика вместо гаданий" data-en="&quot;Analyst&quot; — probability and statistics over guesswork"></span>
+        <span class="trait" data-ru="«Универсал» — от кода до баланса" data-en="&quot;All-rounder&quot; — from code to balance"></span>
+      </div>
+      <div class="oc-perks">
+        <span class="oc-traits-title" data-ru="ПЕРКИ:" data-en="PERKS:"></span>
+        <span class="perk">C# ●●●●</span><span class="perk">C++ ●●●</span><span class="perk">Unity ●●●●</span>
+        <span class="perk">TypeScript / PixiJS ●●●</span><span class="perk">Figma · Photoshop ●●●</span>
+        <span class="perk" data-ru="GDD / документация ●●●●●" data-en="GDD / documentation ●●●●●"></span>
+        <span class="perk" data-ru="Мат. статистика ●●●●" data-en="Math statistics ●●●●"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Раскрытые дела -->
+  <h3 class="cases-title reveal" data-ru="РАСКРЫТЫЕ ДЕЛА" data-en="CLOSED CASES"></h3>
+  <div class="cases">
+    <article class="case reveal" data-case>
+      <button class="case-head" type="button">
+        <span class="case-no">ДЕЛО №1</span>
+        <span class="case-name" data-ru="GDD СТРАТЕГИИ С ГРАДОСТРОЕНИЕМ" data-en="STRATEGY GDD WITH CITY-BUILDING"></span>
+        <span class="case-tag" data-ru="СТАТУС: РАСКРЫТО" data-en="STATUS: SOLVED"></span>
+      </button>
+      <div class="case-body">
+        <ul class="evidence">
+          <li data-ru="Полноценный игровой дизайн-документ стратегии с элементами градостроительного симулятора." data-en="A complete game design document for a strategy title with city-building elements."></li>
+          <li data-ru="Описаны игровые механики, прогрессия, баланс ресурсов и арт-стиль." data-en="Mechanics, progression, resource balance and art direction — all specified."></li>
+          <li data-ru="Документ структурирован под передачу в команду разработки — можно начинать продакшен." data-en="Structured for handoff to a dev team — production can start from it."></li>
+        </ul>
+      </div>
+    </article>
+    <article class="case reveal" data-case>
+      <button class="case-head" type="button">
+        <span class="case-no">ДЕЛО №2</span>
+        <span class="case-name" data-ru="ВАРГЕЙМ «КОРОЛЕВСТВА ЭРИДОРА»" data-en="WARGAME “KINGDOMS OF ERIDOR”"></span>
+        <span class="case-tag" data-ru="СТАТУС: РАСКРЫТО" data-en="STATUS: SOLVED"></span>
+      </button>
+      <div class="case-body">
+        <ul class="evidence">
+          <li data-ru="Пошаговая настольная тактика на 4 фракции, спроектирована с нуля." data-en="A turn-based tabletop tactics game for 4 factions, designed from scratch."></li>
+          <li data-ru="Боевые механики, система захвата территорий, баланс юнитов." data-en="Combat mechanics, a territory capture system, unit balance."></li>
+          <li data-ru="15+ плейтест-сессий: собирал обратную связь и итеративно балансировал характеристики — по принципу, схожему с анализом live-ops после релиза события." data-en="15+ playtest sessions: gathering feedback and balancing stats iteratively — the same loop as live-ops analysis after an event ships."></li>
+        </ul>
+      </div>
+    </article>
+    <article class="case reveal" data-case>
+      <button class="case-head" type="button">
+        <span class="case-no">ДЕЛО №3</span>
+        <span class="case-name" data-ru="PLAYABLE ADS: SDK + КРЕАТИВЫ" data-en="PLAYABLE ADS: SDK + CREATIVES"></span>
+        <span class="case-tag" data-ru="СТАТУС: РАСКРЫТО" data-en="STATUS: SOLVED"></span>
+      </button>
+      <div class="case-body">
+        <ul class="evidence">
+          <li data-ru="Engine-agnostic SDK для HTML5-плейеблов с адаптерами под рекламные сети (TypeScript)." data-en="An engine-agnostic SDK for HTML5 playables with ad-network adapters (TypeScript)."></li>
+          <li data-ru="«Splash Kitty!» — PixiJS 8 + matter.js, один файл 684 КБ, без сетевых запросов." data-en="&quot;Splash Kitty!&quot; — PixiJS 8 + matter.js, a single 684 KB file, zero network requests."></li>
+          <li data-ru="«Mob Rush» — толпа-раннер, один файл 472 КБ, процедурный арт и звук, MRAID." data-en="&quot;Mob Rush&quot; — a crowd runner, a single 472 KB file, procedural art and sound, MRAID."></li>
+        </ul>
+      </div>
+    </article>
+    <article class="case reveal" data-case>
+      <button class="case-head" type="button">
+        <span class="case-no">ДЕЛО №4</span>
+        <span class="case-name">ECHOLOOP</span>
+        <span class="case-tag" data-ru="СТАТУС: РАСКРЫТО" data-en="STATUS: SOLVED"></span>
+      </button>
+      <div class="case-body">
+        <ul class="evidence">
+          <li data-ru="Головоломка на Unity 6 + URP: механика петель времени и «эхо» прошлых прохождений." data-en="A Unity 6 + URP puzzle: time-loop mechanics with echoes of your past runs."></li>
+          <li data-ru="8 уровней, спроектированных вокруг одной сильной механики." data-en="Eight levels built around one strong mechanic."></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+
+  <!-- Протокол допроса -->
+  <h3 class="cases-title reveal" data-ru="ПРОТОКОЛ ДОПРОСА" data-en="INTERROGATION TRANSCRIPT"></h3>
+  <div class="faq">
+    <details class="faq-item reveal">
+      <summary data-ru="— Почему геймдизайн после инженерного образования?" data-en="— Why game design after an engineering degree?"></summary>
+      <p data-ru="Потому что я проектирую механики, которые могу сам запрограммировать и посчитать. Образование связывает дизайн решения и его реализацию: я понимаю, чего стоит та или иная механика в коде и данных." data-en="Because I design mechanics I can also program and compute myself. My degree bridges the design decision and its implementation: I know what a mechanic costs in code and in data."></p>
+    </details>
+    <details class="faq-item reveal">
+      <summary data-ru="— Что интересует в геймдизайне больше всего?" data-en="— What interests you most in game design?"></summary>
+      <p data-ru="Баланс техники, боевые характеристики, экономика и влияние изменений на игровой процесс. Мне нравится находить точку, где минимальная правка делает систему честной." data-en="Technical balance, combat characteristics, economy, and the impact of changes on gameplay. I like finding the point where a minimal tweak makes the system fair."></p>
+    </details>
+    <details class="faq-item reveal">
+      <summary data-ru="— Есть ли опыт командной работы?" data-en="— Any team experience?"></summary>
+      <p data-ru="Да: коммерческие веб-проекты на заказ, передача GDD «под ключ» в команду разработки, а плейтесты «Эридора» — это по сути полевые исследования с людьми." data-en="Yes: commercial web projects on contract, a handoff-ready GDD for a dev team, and Eridor's playtests are essentially field research with real people."></p>
+    </details>
+    <details class="faq-item reveal">
+      <summary data-ru="— Когда можете приступить?" data-en="— When can you start?"></summary>
+      <p data-ru="Сейчас — стажировка или частичная занятость. Полный день — после выпуска в 2027-м (счётчик дней вверху досье)." data-en="Right now — an internship or part-time role. Full-time after graduation in 2027 (see the day counter at the top)."></p>
+    </details>
+    <details class="faq-item reveal">
+      <summary data-ru="— Английский?" data-en="— English?"></summary>
+      <p data-ru="A2 — читаю документацию свободно, говорю скромно. Прокачивается; английский вынесен отдельным островом в Томе V." data-en="A2 — I read documentation freely, my speaking is modest. It's being leveled up; English has its own island in Volume V."></p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ ТОМ III. RIPTON ============ -->
+<section class="volume vol-3" id="vol3" data-vol="3">
+  <div class="vol-header">
+    <span class="vol-num" data-ru="ТОМ III" data-en="VOLUME III"></span>
+    <h2 class="vol-title">RIPTON</h2>
+    <p class="vol-sub" data-ru="Операция — карта города, миссии и показания очевидцев" data-en="The Operation — city map, missions and witness statements"></p>
+  </div>
+
+  <!-- Карта -->
+  <div class="citymap-wrap reveal">
+    <div class="citymap">
+      <a class="district d-active" href="#vol1" data-ru="Кабинет" data-en="Precinct"></a>
+      <a class="district" href="#vol2" data-ru="Личное дело" data-en="Records"></a>
+      <a class="district d-here" href="#vol3" data-ru="Операция" data-en="Operation"></a>
+      <a class="district" href="#vol4" data-ru="Студия" data-en="Studio"></a>
+      <a class="district" href="#vol5" data-ru="Архипелаг" data-en="Archipelago"></a>
+    </div>
+    <p class="citymap-note" data-ru="Карта Риптона: районы = тома дела. Клик — переход. Шкала поддержки населения (вверху) растёт по мере изучения досье." data-en="The Ripton map: districts are volumes of the case. Click to travel. The public support bar (top) grows as you study the file."></p>
+  </div>
+
+  <!-- Миссии -->
+  <div class="missions">
+    <article class="mission reveal">
+      <h4 class="mission-name">ОПЕРАЦИЯ «ЭРИДОР»</h4>
+      <p class="mission-goal"><span data-ru="Основная цель:" data-en="Primary objective:"></span> <span data-ru="сбалансировать пошаговую тактику на 4 фракции." data-en="balance a turn-based tactics game across 4 factions."></span></p>
+      <ul class="mission-sec">
+        <li>✔ <span data-ru="15+ плейтест-сессий с фиксацией фидбека" data-en="15+ playtest sessions with logged feedback"></span></li>
+        <li>✔ <span data-ru="цикл «данные → гипотеза → минимальная правка»" data-en="the loop: data → hypothesis → minimal patch"></span></li>
+        <li>✔ <span data-ru="экономика захвата территорий без тупиков" data-en="a territory-capture economy with no dead ends"></span></li>
+      </ul>
+    </article>
+    <article class="mission reveal">
+      <h4 class="mission-name">ОПЕРАЦИЯ «ОДИН ФАЙЛ»</h4>
+      <p class="mission-goal"><span data-ru="Основная цель:" data-en="Primary objective:"></span> <span data-ru="playable-креатив весом меньше 700 КБ без сетевых запросов." data-en="a playable creative under 700 KB with zero network requests."></span></p>
+      <ul class="mission-sec">
+        <li>✔ Splash Kitty! — 684 КБ, PixiJS 8 + matter.js</li>
+        <li>✔ Mob Rush — 472 КБ, MRAID</li>
+        <li>✔ <span data-ru="процедурный арт и звук, чтобы влезло" data-en="procedural art and sound, so it all fits"></span></li>
+      </ul>
+    </article>
+    <article class="mission reveal">
+      <h4 class="mission-name">ОПЕРАЦИЯ «ПЯТЬ СТУДИЙ»</h4>
+      <p class="mission-goal"><span data-ru="Основная цель:" data-en="Primary objective:"></span> <span data-ru="интерактивное резюме под конкретную студию — как демонстрация геймдизайна." data-en="an interactive resume tailored to one studio — as a game design demonstration in itself."></span></p>
+      <ul class="mission-sec">
+        <li>✔ <span data-ru="пять досье, пять разных подходов" data-en="five dossiers, five different approaches"></span></li>
+        <li>✔ <span data-ru="это досье — шестое: по мотивам всех игр Weappy Studio" data-en="this file is the sixth: built on all of Weappy Studio's games"></span></li>
+      </ul>
+    </article>
+  </div>
+
+  <!-- Показания -->
+  <h3 class="cases-title reveal" data-ru="ПОКАЗАНИЯ ОЧЕВИДЦЕВ (С ПЛЕЙТЕСТОВ)" data-en="WITNESS STATEMENTS (FROM PLAYTESTS)"></h3>
+  <div class="witnesses reveal">
+    <blockquote class="witness">
+      <p data-ru="«Теперь победить можно любой фракцией — стало интереснее думать, а не выбирать»." data-en="&quot;Now any faction can win — it became about thinking, not just picking.&quot;"></p>
+      <footer><span data-ru="— участник плейтеста №12, «Королевства Эридора»" data-en="— playtest participant #12, Kingdoms of Eridor"></span></footer>
+    </blockquote>
+    <blockquote class="witness">
+      <p data-ru="«Правки после прошлой сессии почти не заметны снаружи, но играть стало ровнее»." data-en="&quot;The patches from last session are barely visible from outside, but it plays smoother now.&quot;"></p>
+      <footer><span data-ru="— участник плейтеста №9, «Королевства Эридора»" data-en="— playtest participant #9, Kingdoms of Eridor"></span></footer>
+    </blockquote>
+    <p class="witness-note" data-ru="Показания архивируются с каждой сессии. Свежие сводки — по запросу." data-en="Statements are archived from every session. Fresh dispatches available on request."></p>
+  </div>
+</section>
+
+<!-- ============ ТОМ IV. СТУДИЯ ============ -->
+<section class="volume vol-4" id="vol4" data-vol="4">
+  <div class="vol-header">
+    <span class="vol-num" data-ru="ТОМ IV" data-en="VOLUME IV"></span>
+    <h2 class="vol-title" data-ru="СТУДИЯ · 1929" data-en="THE STUDIO · 1929"></h2>
+    <p class="vol-sub" data-ru="Продюсерский разбор — как устроен мой процесс, фильмография и роли" data-en="The Producer's Cut — how my process works, the filmography and the roles"></p>
+  </div>
+
+  <!-- Пайплайн -->
+  <h3 class="cases-title gold reveal" data-ru="ПРОИЗВОДСТВЕННЫЙ КОНВЕЙЕР" data-en="THE PRODUCTION LINE"></h3>
+  <div class="pipeline reveal">
+    <div class="pipe-stage"><span class="pipe-num">01</span><h4 data-ru="СЦЕНАРИЙ" data-en="SCRIPT"></h4><p data-ru="Исследование, референсы, гипотеза механики. Что игрок должен почувствовать?" data-en="Research, references, the mechanic hypothesis. What should the player feel?"></p></div>
+    <div class="pipe-stage"><span class="pipe-num">02</span><h4 data-ru="КАСТИНГ" data-en="CASTING"></h4><p data-ru="Выбор инструмента под задачу: Unity или веб, стол или движок." data-en="Casting the tool for the job: Unity or web, tabletop or engine."></p></div>
+    <div class="pipe-stage"><span class="pipe-num">03</span><h4 data-ru="СЪЁМКА" data-en="SHOOT"></h4><p data-ru="Прототип и вертикальный срез — быстро, грязно, честно." data-en="Prototype and vertical slice — fast, dirty, honest."></p></div>
+    <div class="pipe-stage"><span class="pipe-num">04</span><h4 data-ru="ПРОКАТ" data-en="RELEASE"></h4><p data-ru="Плейтесты, баланс, правки. Как live-ops: смотришь на данные, а не на вкусы." data-en="Playtests, balance, patches. Like live-ops: trust the data, not the taste."></p></div>
+    <div class="pipe-stage"><span class="pipe-num">05</span><h4 data-ru="АРХИВ" data-en="ARCHIVE"></h4><p data-ru="Документация и хендофф — чтобы команда продолжила без меня." data-en="Documentation and handoff — so the team can continue without me."></p></div>
+  </div>
+
+  <!-- Фильмография -->
+  <h3 class="cases-title gold reveal" data-ru="ФИЛЬМОГРАФИЯ ПРОДЮСЕРА" data-en="PRODUCER'S FILMOGRAPHY"></h3>
+  <div class="filmography">
+    <div class="film reveal">
+      <div class="film-poster fp-1"><span class="film-g">Splash Kitty!</span></div>
+      <h4>SPLASH KITTY!</h4>
+      <p class="film-meta"><span data-ru="жанр: playable · год: 2025 · сборы: 684 КБ одним файлом" data-en="genre: playable · year: 2025 · gross: 684 KB in a single file"></span></p>
+    </div>
+    <div class="film reveal">
+      <div class="film-poster fp-2"><span class="film-g">Mob Rush</span></div>
+      <h4>MOB RUSH</h4>
+      <p class="film-meta"><span data-ru="жанр: crowd-runner · год: 2025 · сборы: 472 КБ, MRAID" data-en="genre: crowd-runner · year: 2025 · gross: 472 KB, MRAID"></span></p>
+    </div>
+    <div class="film reveal">
+      <div class="film-poster fp-3"><span class="film-g">EchoLoop</span></div>
+      <h4>ECHOLOOP</h4>
+      <p class="film-meta"><span data-ru="жанр: time-loop puzzle · год: 2025 · сборы: 8 уровней" data-en="genre: time-loop puzzle · year: 2025 · gross: 8 levels"></span></p>
+    </div>
+    <div class="film reveal">
+      <div class="film-poster fp-4"><span class="film-g" data-ru="Эридор" data-en="Eridor"></span></div>
+      <h4 data-ru="КОРОЛЕВСТВА ЭРИДОРА" data-en="KINGDOMS OF ERIDOR"></h4>
+      <p class="film-meta"><span data-ru="жанр: настольный варгейм · годы: 2023–2026 · сборы: 15+ плейтестов" data-en="genre: tabletop wargame · years: 2023–2026 · gross: 15+ playtests"></span></p>
+    </div>
+    <div class="film reveal">
+      <div class="film-poster fp-5"><span class="film-g">GDD</span></div>
+      <h4 data-ru="GDD: СТРАТЕГИЯ" data-en="GDD: THE STRATEGY"></h4>
+      <p class="film-meta"><span data-ru="жанр: документальный · год: 2026 · сборы: готов к продакшену" data-en="genre: documentary · year: 2026 · gross: production-ready"></span></p>
+    </div>
+  </div>
+
+  <!-- Кастинг -->
+  <h3 class="cases-title gold reveal" data-ru="КАСТИНГ-ЛИСТ" data-en="THE CASTING SHEET"></h3>
+  <ul class="casting reveal">
+    <li><b data-ru="Соло-автор" data-en="Solo author"></b> — <span data-ru="«Эридор», GDD стратегии: вся ответственность от механики до баланса." data-en="Eridor, the strategy GDD: full ownership from mechanic to balance."></span></li>
+    <li><b data-ru="Тех-дизайнер" data-en="Tech designer"></b> — <span data-ru="SDK плейеблов: дизайн системы + код на TypeScript." data-en="The playables SDK: system design plus TypeScript code."></span></li>
+    <li><b data-ru="Контрактник" data-en="Contractor"></b> — <span data-ru="коммерческие веб-проекты: сайты, сроки, заказчики." data-en="commercial web work: sites, deadlines, clients."></span></li>
+    <li><b data-ru="Исследователь" data-en="Researcher"></b> — <span data-ru="плейтесты «Эридора»: протоколы, фидбек, выводы." data-en="Eridor playtests: protocols, feedback, conclusions."></span></li>
+  </ul>
+
+  <!-- Дилемма -->
+  <h3 class="cases-title gold reveal" data-ru="ДИЛЕММА ПРОДЮСЕРА — РЕАЛЬНЫЙ КЕЙС" data-en="THE PRODUCER'S DILEMMA — A REAL CASE"></h3>
+  <div class="dilemma reveal">
+    <p class="dilemma-setup" data-ru="Плейтесты «Эридора» показали: одна фракция побеждает в 60% партий. Зрители недовольны, релиз близко. Что делает продюсер?" data-en="Eridor playtests show one faction winning 60% of matches. The audience is restless, the premiere is close. What does the producer do?"></p>
+    <div class="dilemma-choices">
+      <button class="d-choice" id="dChoiceA" data-ru="НЕРФИТЬ КЛЮЧЕВОГО ЮНИТА" data-en="NERF THE KEY UNIT"></button>
+      <button class="d-choice" id="dChoiceB" data-ru="ПОДНЯТЬ ЕГО ЦЕНУ" data-en="RAISE ITS COST"></button>
+    </div>
+    <div class="dilemma-verdict" id="dVerdict" hidden></div>
+  </div>
+</section>
+
+<!-- ============ ТОМ V. АРХИПЕЛАГ ============ -->
+<section class="volume vol-5" id="vol5" data-vol="5">
+  <div class="vol-header">
+    <span class="vol-num" data-ru="ТОМ V" data-en="VOLUME V"></span>
+    <h2 class="vol-title" data-ru="АРХИПЕЛАГ" data-en="THE ARCHIPELAGO"></h2>
+    <p class="vol-sub" data-ru="Вечная глава — куда плывёт корабль и что открывает трость" data-en="The Eternal Chapter — where the ship sails and what the cane unlocks"></p>
+  </div>
+
+  <div class="islands reveal">
+    <div class="island isl-1">
+      <h4 data-ru="Остров Индустрии" data-en="Isle of the Industry"></h4>
+      <p data-ru="Выйти в студию: live-ops, баланс событий, экономика. Порт уже открыт." data-en="Join a studio: live-ops, event balance, economy. The port is already open."></p>
+    </div>
+    <div class="island isl-2">
+      <h4 data-ru="Остров Диплома" data-en="Isle of the Diploma"></h4>
+      <p data-ru="2027, БГУИР. До берега — по счётчику вверху." data-en="2027, BSUIR. Distance to shore — see the counter above."></p>
+    </div>
+    <div class="island isl-3">
+      <h4 data-ru="Остров Стратегии" data-en="Isle of the Strategy"></h4>
+      <p data-ru="Собственная стратегия из GDD — от документа к прототипу." data-en="My own strategy game from the GDD — from document to prototype."></p>
+    </div>
+    <div class="island isl-4">
+      <h4 data-ru="Остров Языков" data-en="Isle of Tongues"></h4>
+      <p data-ru="Английский: A2 → B1+. Тренировки ежедневно." data-en="English: A2 → B1+. Training daily."></p>
+    </div>
+  </div>
+
+  <div class="cane reveal">
+    <h3 class="cane-title" data-ru="ТРОСТЬ ГОЛДМАНА — ПЛАН ПРОКАЧКИ" data-en="GOLDMAN'S CANE — THE UPGRADE PLAN"></h3>
+    <ul class="cane-list">
+      <li><span class="cane-part" data-ru="Набалдашник: мат. статистика →" data-en="The handle: math statistics →"></span> <span data-ru="открывает остров глубокой экономики" data-en="unlocks the isle of deep economy"></span></li>
+      <li><span class="cane-part" data-ru="Древко: Unity DOTS →" data-en="The shaft: Unity DOTS →"></span> <span data-ru="открывает остров больших симуляций" data-en="unlocks the isle of large-scale simulations"></span></li>
+      <li><span class="cane-part" data-ru="Наконечник: английский →" data-en="The tip: English →"></span> <span data-ru="открывает остров международных студий" data-en="unlocks the isle of international studios"></span></li>
+    </ul>
+  </div>
+
+  <div class="epilogue reveal">
+    <p class="epilogue-text" data-ru="«Хороший баланс — это когда правки почти не заметны, а игра стала честнее». Это досье — тоже игра: если вы дочитали сюда, геймплейный цикл сработал." data-en="&quot;Good balance is when the patches are barely visible and the game got fairer.&quot; This dossier is a game too: if you read this far, its core loop worked."></p>
+    <div class="final-actions">
+      <a class="final-btn" href="mailto:kukar.yar@gmail.com" data-ru="ВЫЗВАТЬ НА СОБЕСЕДОВАНИЕ" data-en="SUMMON FOR AN INTERVIEW"></a>
+      <a class="final-btn ghost" href="https://github.com/Kerarty" target="_blank" rel="noopener">GITHUB / KERARTY</a>
+    </div>
+    <div class="final-stamp" id="finalStamp">
+      <span data-ru="ГОДЕН К НАЙМУ" data-en="FIT FOR HIRE"></span>
+    </div>
+    <p class="final-line" data-ru="ДЕЛО № ГД-180 ЗАКРЫТО. КАНДИДАТ ПРИНЯТ. СЛУЖБА ПРОДОЛЖАЕТСЯ." data-en="CASE NO. GD-180 CLOSED. CANDIDATE HIRED. THE SERVICE CONTINUES."></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="page-footer">
+  <p data-ru="Интерактивное досье Ярослава Кукара · составлено с любовью к играм Weappy Studio · Freeburg — Sharpwood — Ripton — Студия — Архипелаг" data-en="An interactive dossier of Yaroslav Kukar · made with love for the games of Weappy Studio · Freeburg — Sharpwood — Ripton — the Studio — the Archipelago"></p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
